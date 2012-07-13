@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.require_paths    = ["lib"]
   s.version          = UsefullAttachment::VERSION
   
-  s.add_dependency "rails", "3.0.9"
+  s.add_dependency "rails", "~>3.0.15"
   
 end
 

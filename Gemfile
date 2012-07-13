@@ -5,7 +5,7 @@
 
 source "http://rubygems.org"
 
-gem  "rails", "3.0.9"
+gem  "rails", "~>3.0.15"
 
 group :development, :test do
   gem "ruby-debug"

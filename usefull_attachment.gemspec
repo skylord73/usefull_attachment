@@ -16,6 +16,8 @@ Gem::Specification.new do |s|
   s.version          = UsefullAttachment::VERSION
   
   s.add_dependency "rails", "~>3.0.15"
+  s.add_dependency "acts_as_monitor"
+  s.add_dependency "paperclip"
   
 end
 

@@ -1,5 +1,5 @@
 <%= admin_title %>
-<%= filter_for @search, :url => admin_attachments_path do |f| %>
+<%= filter_for @search, :url => usefull_attachment_links_path do |f| %>
   <%= f.text_field :attachmentable_type %>
   <%= f.text_field :attachmentable_id %>
   <%= f.text_field :file_content_type %>
@@ -11,8 +11,8 @@
 <span class="span-24" style="overflow:scroll">
 <%=table_for(@attachments,@search) do |t| %>
   <% t.monitor %>
-	<% t.download :url => Proc.new {|object| download_admin_attachment_path(object)} %>
-  <% t.destroy :url => Proc.new {|object| admin_attachment_path(object)}, :link_options => {:confirm => 'Are you sure?', :method => :delete} %>
+	<% t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object)} %>
+  <% t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object)}, :link_options => {:confirm => 'Are you sure?', :method => :delete} %>
   <% t.col :id %>
   <% t.col :attachmentable_type %>
   <% t.col :attachmentable_id %>
@@ -23,4 +23,4 @@
   <% t.col :file_content_type %>
 <% end %>
 </span>
-<%= link_bar(new_admin_attachment_path) %>
+<%= link_bar(new_usefull_attachment_link_path) %>

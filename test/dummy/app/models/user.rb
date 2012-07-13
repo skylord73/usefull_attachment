@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  has_many :links, :as => :attachmentable
+  has_many :links, :class_name => "UsefullAttachment::Link", :as => :attachmentable
 end

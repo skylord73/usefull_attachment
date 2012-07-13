@@ -18,6 +18,23 @@ it:
       multi_page: "Visualizza %{model} dal  %{from} al %{to} di  %{count}  "
       #multi_page_html: "Displaying %{plural} <b class='range'>%{from}&nbsp;-&nbsp;%{to}</b> of <b class='total'>%{total}</b> in total"
       multi_page_html: "Visualizza %{model} dal  %{from} al %{to} di  %{count}  "
-        
-  
+      
+  activerecord: 
+    models:
+      usefull_attachment:
+        link:
+          one: Allegato
+          other: Allegati
+    attributes:
+     usefull_attachment:
+        link:
+          attachmentable_type: "Classe Proprietaria"
+          attachmentable_id: "Id Proprietario"
+          type: "Tipo"
+          description: "Descrizione"
+          file_file_name: "File"
+          file_file_size: "Kb"
+          updated_at: "Modificato"
+          file_content_type: "Mime-Type"
+          file_updated_at: "Modificato"
     

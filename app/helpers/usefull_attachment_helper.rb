@@ -15,7 +15,7 @@ module UsefullAttachmentHelper
   end
   
   def list_attachments_for(object, full = false)
-    if object.respond_to?(:links)
+    if object.respond_to?(:links) && object.links.present?
       table_for object.links do |t|
         t.monitor
         t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object)}

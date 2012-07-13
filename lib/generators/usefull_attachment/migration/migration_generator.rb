@@ -1,4 +1,6 @@
 require 'rails/generators'
+require 'rails/generators/migration'
+
 module UsefullAttachment
   class MigrationGenerator < Rails::Generators::Base
     desc "Migration generator for UsefullAttachment gem"

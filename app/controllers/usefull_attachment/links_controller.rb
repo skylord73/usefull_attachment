@@ -12,7 +12,7 @@ module UsefullAttachment
     
     def create
       ##UserSession.log("Admin::AttachmentController#create params=#{params[:admin_attachment].inspect}")
-      Link.create(params[:admin_attachment])
+      Link.create(params[:usefull_attachment_link])
       redirect_to :action => "index"
     end
 

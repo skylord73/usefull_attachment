@@ -11,6 +11,7 @@ gem "paperclip"
 gem "simple_form"
 gem "usefull_filter"
 gem "usefull_table"
+gem "will_paginate"
 
 group :development, :test do
   gem "ruby-debug"

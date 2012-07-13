@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "simple_form"
   s.add_dependency "usefull_filter"
   s.add_dependency "usefull_table"
+  s.add_dependency "will_paginate"
   
 end
 

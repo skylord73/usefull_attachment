@@ -1,6 +1,6 @@
 #Add here view and controller helpers
 module UsefullAttachmentHelper
-  def new_attachment_tag(object, description = true)
+  def new_attachment_for(object, description = true)
     #ToDo check the relation type and assure is UsefullAttachment::Link
     if object.respond_to?(:links)
       form_for object.links.build, :html => {:multipart => true} do |f|
@@ -13,6 +13,21 @@ module UsefullAttachmentHelper
     end
     
   end
+  
+  def list_attachments_for(object, full = false)
+    if object.respond_to?(:links)
+      table_for object.links do |t|
+        t.monitor
+        t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object)}
+        t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object)}
+        t.col :file_file_name
+        t.col :description
+        t.col :file_file_size if full
+        t.col :file_file_updated_at if full
+      end
+    end
+  end
+  
   
 end
 

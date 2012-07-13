@@ -8,6 +8,9 @@ source "http://rubygems.org"
 gem "rails", "~>3.0.15"
 gem "acts_as_monitor"
 gem "paperclip"
+gem "simple_form"
+gem "usefull_filter"
+gem "usefull_table"
 
 group :development, :test do
   gem "ruby-debug"

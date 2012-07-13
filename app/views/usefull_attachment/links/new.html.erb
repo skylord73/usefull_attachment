@@ -1,0 +1,13 @@
+<%= admin_title %>
+
+<%= simple_form_for @attachment, :url => admin_attachments_path, :html => { :multipart => true } do |form| %>
+	<%#= form.label :parent_class %>
+	Parent Class<%= form.text_field :attachmentable_type %>
+	<%#= form.label :type %>
+	Type<%= form.text_field :type %>
+	<%#= form.label :description %>
+	Description <%= form.text_field :description %>
+  file <%= form.file_field :file %>
+  <%= form.submit %>
+<% end %>
+

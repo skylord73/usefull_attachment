@@ -12,6 +12,7 @@ module UsefullAttachment
     end
   end 
 
+  class FileMissing < CustomError ; end
   #class MyError < CustomError; end
 end
 

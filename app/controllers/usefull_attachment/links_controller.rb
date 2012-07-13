@@ -1,5 +1,5 @@
 module UsefullAttachment
-  class LinksController < AdminController
+  class LinksController < ApplicationController
     def index
       @search = Link.search(params[:search])
       @attachments = @search.paginate(:page => params[:page])

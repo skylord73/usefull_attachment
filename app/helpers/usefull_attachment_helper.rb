@@ -4,9 +4,9 @@ module UsefullAttachmentHelper
     #ToDo check the relation type and assure is UsefullAttachment::Link
     if object.respond_to?(:links)
       form_for object.links.build, :html => {:multipart => true} do |f|
-        f.file_field :file
-        f.text_field :description
-        f.submit
+        concat(f.file_field :file)
+        concat(f.text_field :description)
+        concat(f.submit)
       end
     end
     

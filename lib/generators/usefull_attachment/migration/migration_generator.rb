@@ -3,6 +3,7 @@ require 'rails/generators/migration'
 
 module UsefullAttachment
   class MigrationGenerator < Rails::Generators::Base
+    include Rails::Generators::Migration
     desc "Migration generator for UsefullAttachment gem"
     source_root File.expand_path("../templates", __FILE__)
     

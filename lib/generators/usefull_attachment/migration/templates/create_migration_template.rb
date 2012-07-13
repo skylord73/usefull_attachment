@@ -1,5 +1,5 @@
 class CreateLinks < ActiveRecord::Migration
-  create_table "links" do |t|
+  create_table "usefull_attachment_links" do |t|
       t.string   "type"
       t.string   "description"
       t.string   "file_content_type"

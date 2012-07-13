@@ -1,6 +1,5 @@
-<%= admin_title %>
 
-<%= simple_form_for @attachment, :url => admin_attachments_path, :html => { :multipart => true } do |form| %>
+<%= simple_form_for @attachment, :url => usefull_attachment_links_path, :html => { :multipart => true } do |form| %>
 	<%#= form.label :parent_class %>
 	Parent Class<%= form.text_field :attachmentable_type %>
 	<%#= form.label :type %>

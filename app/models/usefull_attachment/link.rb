@@ -21,7 +21,7 @@ module UsefullAttachment
                       :path => :get_path,
                       #Nota: le options di :styles devono essere String altrimenti si pianta tutto
                       :styles => {:import => "true"},
-                      :processors => [:excel_processor]
+                      :processors => [:file_processor]
                       
     validates_attachment_presence :file
     

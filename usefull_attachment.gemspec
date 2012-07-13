@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description      = "Describe Gem Here"
   s.summary          = "Describe Gem Here"
   
-  s.files            = Dir["{app,lib,config}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.md", "CHANGELOG.md"]
+  s.files            = Dir["{app,lib,config,bin}/**/*"] + ["MIT-LICENSE", "Rakefile", "Gemfile", "README.md", "CHANGELOG.md"]
   s.executables      = s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.test_files       = s.files.grep(%r{^(test|spec|features)/})
   s.name             = "usefull_attachment"

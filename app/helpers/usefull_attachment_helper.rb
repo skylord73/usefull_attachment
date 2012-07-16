@@ -34,7 +34,7 @@ module UsefullAttachmentHelper
   def show_avatar_for(object, *args)
     if object.respond_to?(:links) && object.links.present?
       avatar = object.links.find_by_typology("avatar")
-      image_tag(avatar.file.path, :size => "200x200")
+      image_tag(avatar.file.url, :size => "200x200")
     end
   end
   

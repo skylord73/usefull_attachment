@@ -19,6 +19,7 @@ module UsefullAttachment
     has_attached_file :file,
                       #:path => "/mnt/WebGatec/:type/:type_id/:filename",
                       :path => :get_path,
+                      :url => :get_path,
                       #Nota: le options di :styles devono essere String altrimenti si pianta tutto
                       :styles => {:import => "true"},
                       :processors => [:file_processor]

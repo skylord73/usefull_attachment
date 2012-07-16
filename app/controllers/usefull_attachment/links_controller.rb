@@ -12,7 +12,7 @@ module UsefullAttachment
     
     def create
       ##UserSession.log("Admin::AttachmentController#create params=#{params[:admin_attachment].inspect}")
-      Link.create(params[:usefull_attachment_link]) if params[:usefull_attachment_link].present?
+      Attachment.create(params[:usefull_attachment_attachment]) if params[:usefull_attachment_attachment].present?
       Avatar.create(params[:usefull_attachment_avatar]) if params[:usefull_attachment_avatar].present?
       redirect_to :action => "index"
     end

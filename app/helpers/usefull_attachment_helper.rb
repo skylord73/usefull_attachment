@@ -29,7 +29,7 @@ module UsefullAttachmentHelper
   
   #Create a table to show attachments
   def list_attachments_for(object, full = false)
-    if object.respond_to?(:attachments) && object.links.present?
+    if object.respond_to?(:attachments) && object.attachments.present?
       #Rails::logger.info("list_attachments_for obj.links=#{object.links.inspect}")
       table_for object.attachments do |t|
         #t.monitor

@@ -10,5 +10,6 @@ class CreateLinks < ActiveRecord::Migration
       t.datetime "updated_at"
       t.integer  "attachmentable_id"
       t.string   "attachmentable_type", :limit => 100, :null => false
+      t.string   "typology"
     end
 end

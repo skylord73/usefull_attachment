@@ -2,6 +2,7 @@
 <%= filter_for @search, :url => usefull_attachment_links_path do |f| %>
   <%= f.text_field :attachmentable_type %>
   <%= f.text_field :attachmentable_id %>
+  <%= f.text_field :typology %>
   <%= f.text_field :file_content_type %>
   <%= f.text_field :file_file_name %>
   <%= f.submit %>
@@ -17,6 +18,7 @@
   <% t.col :attachmentable_type %>
   <% t.col :attachmentable_id %>
   <% t.col :type %>
+  <% t.col :typology %>
   <% t.col :description %>
   <% t.col :file_file_name %>
   <% t.col :file_file_size %>

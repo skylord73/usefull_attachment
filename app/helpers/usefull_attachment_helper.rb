@@ -3,7 +3,7 @@ module UsefullAttachmentHelper
   #Create a button to add new file to attachment system
   def new_attachment_for(object, description = true)
     #ToDo check the relation type and assure is UsefullAttachment::Link
-    if object.respond_to?(:links)
+    if object.respond_to?(:attachments)
       form_for object.links.new, :html => {:multipart => true} do |f|
         concat(f.hidden_field :attachmentable_type)
         concat(f.hidden_field :attachmentable_id)
@@ -29,7 +29,7 @@ module UsefullAttachmentHelper
   
   #Create a table to show attachments
   def list_attachments_for(object, full = false)
-    if object.respond_to?(:links) && object.links.present?
+    if object.respond_to?(:attachments) && object.links.present?
       Rails::logger.info("list_attachments_for obj.links=#{object.links.inspect}")
       table_for object.links do |t|
         #t.monitor

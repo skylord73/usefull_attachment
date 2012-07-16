@@ -16,7 +16,7 @@ module UsefullAttachmentHelper
   end
   
   def new_avatar_for(object)
-    if object.respond_to?(:avatar)
+    if object.respond_to?(:avatars)
       form_for object.avatar.build, :html => {:multipart => true} do |f|
         concat(f.file_field :file)
         concat(f.submit)

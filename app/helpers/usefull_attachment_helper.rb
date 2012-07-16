@@ -24,9 +24,8 @@ module UsefullAttachmentHelper
           concat(f.file_field :file)
           concat(f.submit)
         end
-          link_to 'Delete', usefull_attachment_link_path(object.avatar.id), :method => :delete, :confirm => 'Are you sure'
       else
-            
+        link_to 'Delete', usefull_attachment_link_path(object.avatar.id), :method => :delete, :confirm => 'Are you sure'
       end
     end
   end

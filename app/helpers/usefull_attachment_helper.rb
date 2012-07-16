@@ -30,7 +30,7 @@ module UsefullAttachmentHelper
   #Create a table to show attachments
   def list_attachments_for(object, full = false)
     if object.respond_to?(:links) && object.links.present?
-      Rails::logger.info("list_attachments_for obj.links=#{object.inspect}")
+      Rails::logger.info("list_attachments_for obj.links=#{object.links.inspect}")
       table_for object.links do |t|
         #t.monitor
         t.download :url => Proc.new {|object| Rails::logger.info("list_attachments_for obj=#{object.inspect}"); download_usefull_attachment_link_path(1)} 

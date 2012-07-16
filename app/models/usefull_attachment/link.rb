@@ -67,7 +67,7 @@ module UsefullAttachment
     end
     
     def get_url
-      "images/WebGatec/:type/:type_id/:base_name.:extension"
+      "/images/WebGatec/:type/:type_id/:base_name.:extension"
     end
     
     

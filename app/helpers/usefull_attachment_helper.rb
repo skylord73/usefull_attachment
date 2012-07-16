@@ -1,5 +1,6 @@
-#Add here view and controller helpers
 module UsefullAttachmentHelper
+
+  #Create a button to add new file to attachment system
   def new_attachment_for(object, description = true)
     #ToDo check the relation type and assure is UsefullAttachment::Link
     if object.respond_to?(:links)
@@ -14,6 +15,7 @@ module UsefullAttachmentHelper
     
   end
   
+  #Create a table to show attachments
   def list_attachments_for(object, full = false)
     if object.respond_to?(:links) && object.links.present?
       table_for object.links do |t|
@@ -25,6 +27,14 @@ module UsefullAttachmentHelper
         t.col :file_file_size if full
         t.col :file_file_updated_at if full
       end
+    end
+  end
+  
+  #Draw images marked as :avatar
+  def show_avatar_for(object, *args)
+    if object.respond_to?(:links) && object.links.present?
+      avatar = object.links.find_by_typology("avatar")
+      image_tag(avatar.file.path, :size => "200x200")
     end
   end
   

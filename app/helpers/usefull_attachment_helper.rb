@@ -15,6 +15,16 @@ module UsefullAttachmentHelper
     
   end
   
+  def new_avatar_for(object)
+    if object.respond_to?(:avatar)
+      form_for object.avatar.build, :html => {:multipart => true} do |f|
+        concat(f.file_field :file)
+        concat(f.submit)
+      end
+    end
+  end
+  
+  
   #Create a table to show attachments
   def list_attachments_for(object, full = false)
     if object.respond_to?(:links) && object.links.present?

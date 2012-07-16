@@ -44,9 +44,8 @@ module UsefullAttachmentHelper
   
   #Draw images marked as :avatar
   def show_avatar_for(object, *args)
-    if object.respond_to?(:links) && object.links.present?
-      avatar = object.links.find_by_typology("avatar")
-      image_tag(avatar.file.url, :size => "200x200")
+    if object.respond_to?(:avatars) && object.avatars.present?
+      image_tag(object.avatars.first.file.url, :size => "200x200")
     end
   end
   

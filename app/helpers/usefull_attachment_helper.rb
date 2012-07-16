@@ -38,7 +38,7 @@ module UsefullAttachmentHelper
       table_for object.attachments do |t|
         #t.monitor
         t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object.id)} 
-        #t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object)}
+        t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object.id)}
         t.col :file_file_name
         t.col :description
         t.col :file_file_size if full

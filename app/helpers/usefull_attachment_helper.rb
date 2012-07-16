@@ -32,8 +32,8 @@ module UsefullAttachmentHelper
     if object.respond_to?(:links) && object.links.present?
       table_for object.links do |t|
         #t.monitor
-        t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object)} 
-        t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object)}
+        t.download :url => Proc.new {|object| Rails::logger.info("list_attachments_for obj=#{object.inspect}"); download_usefull_attachment_link_path(1)} 
+        #t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object)}
         t.col :file_file_name
         t.col :description
         t.col :file_file_size if full

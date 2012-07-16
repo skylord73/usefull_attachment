@@ -22,7 +22,7 @@ module UsefullAttachmentHelper
           concat(f.hidden_field :attachmentable_type)
           concat(f.hidden_field :attachmentable_id)
           concat(f.file_field :file)
-          concat(f.submit)
+          concat(f.submit 'Avatar')
         end
       else
         link_to 'Delete', usefull_attachment_link_path(object.avatar.id), :method => :delete, :confirm => 'Are you sure'

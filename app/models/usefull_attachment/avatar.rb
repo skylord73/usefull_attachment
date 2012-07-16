@@ -1,7 +1,6 @@
 module UsefullAttachment
   class Avatar < Link
     
-    
     private
     
     def get_path

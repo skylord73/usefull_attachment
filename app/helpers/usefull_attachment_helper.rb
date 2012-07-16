@@ -4,7 +4,7 @@ module UsefullAttachmentHelper
   def new_attachment_for(object, description = true)
     #ToDo check the relation type and assure is UsefullAttachment::Link
     if object.respond_to?(:attachments)
-      form_for object.attachments.new, :html => {:multipart => true} do |f|
+      form_for object.attachments.new, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
         concat(f.hidden_field :attachmentable_type)
         concat(f.hidden_field :attachmentable_id)
         concat(f.file_field :file)

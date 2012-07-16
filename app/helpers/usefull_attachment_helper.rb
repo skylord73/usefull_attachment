@@ -17,11 +17,13 @@ module UsefullAttachmentHelper
   
   def new_avatar_for(object)
     if object.respond_to?(:avatar)
-      form_for object.build_avatar, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
-        concat(f.hidden_field :attachmentable_type)
-        concat(f.hidden_field :attachmentable_id)
-        concat(f.file_field :file)
-        concat(f.submit)
+      if object.avatar.blank?
+        form_for object.build_avatar, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
+          concat(f.hidden_field :attachmentable_type)
+          concat(f.hidden_field :attachmentable_id)
+          concat(f.file_field :file)
+          concat(f.submit)
+        end
       end
     end
   end

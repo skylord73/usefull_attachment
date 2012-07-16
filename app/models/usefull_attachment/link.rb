@@ -18,7 +18,7 @@ module UsefullAttachment
     
     has_attached_file :file,
                       #:path => "/mnt/WebGatec/:type/:type_id/:filename",
-                      :path => :get_path,
+                      :path => :get_path
                       :url => :get_url,
                       #Nota: le options di :styles devono essere String altrimenti si pianta tutto
                       :styles => {:import => "true"},
@@ -67,7 +67,7 @@ module UsefullAttachment
     end
     
     def get_url
-      "WebGatec/:type/:type_id/:base_name.:extension"
+      "images/WebGatec/:type/:type_id/:base_name.:extension"
     end
     
     

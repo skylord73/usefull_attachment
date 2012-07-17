@@ -1,5 +1,7 @@
 =UsefullAttachment
-UsefullAttachment do something...
+
+A very beta version for internal use only... try at your own risk!
+
 
 ==Setup
 Add this line to your application's Gemfile:

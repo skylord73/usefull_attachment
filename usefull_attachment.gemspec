@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~>3.0.15"
   s.add_dependency "acts_as_monitor"
   s.add_dependency "paperclip"
-  s.add_dependency "simple_form"
   s.add_dependency "usefull_filter"
   s.add_dependency "usefull_table"
   s.add_dependency "will_paginate"

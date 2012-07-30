@@ -24,6 +24,8 @@
   <% t.col :file_file_size %>
   <% t.col :updated_at, :data_type => :DateTime %>
   <% t.col :file_content_type %>
+  <% t.col :created_by %>
+  <% t.col :updated_by %>
 <% end %>
 </span>
 <%= link_to "New", new_usefull_attachment_link_path %>

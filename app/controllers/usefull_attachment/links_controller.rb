@@ -12,9 +12,10 @@ module UsefullAttachment
     
     def create
       ##UserSession.log("Admin::AttachmentController#create params=#{params[:admin_attachment].inspect}")
-      Attachment.create(params[:usefull_attachment_attachment]) if params[:usefull_attachment_attachment].present?
-      Avatar.create(params[:usefull_attachment_avatar]) if params[:usefull_attachment_avatar].present?
-      Link.create(params[:usefull_attachment_link]) if params[:usefull_attachment_link].present?
+      user = current_user ? {:created_by => current_user.id, :updated_by => current_user.id} : {}
+      Attachment.create(params[:usefull_attachment_attachment].deep_merge!(user)) if params[:usefull_attachment_attachment].present?
+      Avatar.create(params[:usefull_attachment_avatar].deep_merge!(user)) if params[:usefull_attachment_avatar].present?
+      Link.create(params[:usefull_attachment_link].deep_merge!(user)) if params[:usefull_attachment_link].present?
       redirect_to :action => "index"
     end
 

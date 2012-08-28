@@ -13,8 +13,10 @@ module UsefullAttachment
   class Link < ActiveRecord::Base
     
     acts_as_monitor
-    #Rename file after save if attachmentable provide a rename_attachment method
+    
     before_validation :validate
+    
+    #Rename file after save if attachmentable provide an attachment_name method
     before_save do
       #UserSession.log("Admin::Attachment#after_save respond=#{self.attachmentable.inspect}")
       rename(self.attachmentable.send(:attachment_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:attachment_name, true)

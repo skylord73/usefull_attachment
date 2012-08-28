@@ -2,8 +2,12 @@
 #
 #Salava i documenti in /mnt/Webgatec/<namespace>/<class>/id/file_name
 #
-#Nel caso sia necessario avere una relazione diversa ovvero 1 attachment -> molti record (vedi PhoneQueue) derivare la casse
-#*  PhoneQueueAttach
+#==Descrizione Campi
+#-  type => Nome della sottoclasse di Lionk che ha generato l'allegato
+#-  attachmentable_type => classe a cui è collegato l'allegato
+#-  attachmentable_id => id della classa a cui è collegato l'allegato
+#
+#N.B. Vengono tutti popolati in automatico da Rails
 #
 module UsefullAttachment
   class Link < ActiveRecord::Base
@@ -65,7 +69,7 @@ module UsefullAttachment
     private
     
     def validate
-      respond_to?(:link)
+      respond_to?(:link_file_name)
     end
     
     

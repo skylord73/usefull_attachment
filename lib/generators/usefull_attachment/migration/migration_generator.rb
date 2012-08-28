@@ -18,7 +18,7 @@ module UsefullAttachment
 
     
     def copy_migration
-      migration_template "create_migration_template.rb", "db/migrate/create_links.rb"
+      migration_template "create_migration_template.rb", "db/migrate/usefull_attachment_create_links.rb"
     end
     
     #def copy_public

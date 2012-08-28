@@ -1,4 +1,4 @@
-class CreateLinks < ActiveRecord::Migration
+class UsefullAttachmentCreateLinks < ActiveRecord::Migration
   def self.up
     create_table :usefull_attachment_links do |t|
       

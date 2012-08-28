@@ -12,7 +12,7 @@ module UsefullAttachment
     #Rename file after save if attachmentable provide a rename_attachment method
     before_save do
       #UserSession.log("Admin::Attachment#after_save respond=#{self.attachmentable.inspect}")
-      rename(self.attachmentable.send(:attachment_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:attachment_name, true)
+      #rename(self.attachmentable.send(:attachment_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:attachment_name, true)
       #UserSession.log("Admin::Attachment#after_save name=#{self.link_file_name}")
     end
     

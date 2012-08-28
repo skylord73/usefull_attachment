@@ -1,3 +1,5 @@
+#Da eliminare ????
+
 module UsefullAttachment
   class Avatar < Link
     

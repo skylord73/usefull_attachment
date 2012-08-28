@@ -16,7 +16,7 @@ class CreateLinks < ActiveRecord::Migration
   end
   
   def self.down
-    drop_table :usefull_table:attachment_links
+    drop_table :usefull_attachment_links
   end
   
 end

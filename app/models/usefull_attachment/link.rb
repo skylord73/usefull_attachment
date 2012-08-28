@@ -16,7 +16,7 @@ module UsefullAttachment
       #UserSession.log("Admin::Attachment#after_save name=#{self.link_file_name}")
     end
     
-    has_attached_file :link,
+    has_attached_file :clip,
                       #:path => "/mnt/WebGatec/:type/:type_id/:filename",
                       :path => :get_path,
                       :url => :get_url,
@@ -24,7 +24,7 @@ module UsefullAttachment
                       :styles => {:import => "true"},
                       :processors => [:file_processor]
                       
-    validates_attachment_presence :link
+    validates_attachment_presence :clip
     #validates :link, :attachment_presence => true
     
     belongs_to :attachmentable , :polymorphic => true

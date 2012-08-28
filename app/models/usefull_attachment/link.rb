@@ -10,14 +10,14 @@ module UsefullAttachment
     
     acts_as_monitor
     #Rename file after save if attachmentable provide a rename_attachment method
-    before_validate :validate
+    before_validation :validate
     before_save do
       #UserSession.log("Admin::Attachment#after_save respond=#{self.attachmentable.inspect}")
       rename(self.attachmentable.send(:attachment_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:attachment_name, true)
       #UserSession.log("Admin::Attachment#after_save name=#{self.link_file_name}")
     end
     
-    has_attached_file :clip,
+    has_attached_file :link,
                       #:path => "/mnt/WebGatec/:type/:type_id/:filename",
                       :path => :get_path,
                       :url => :get_url,
@@ -26,7 +26,7 @@ module UsefullAttachment
                       :processors => [:file_processor]
                       
     
-    #validates_attachment_presence :clip
+    #validates_attachment_presence :link
     #validates :link, :attachment_presence => true
     
     belongs_to :attachmentable , :polymorphic => true
@@ -65,6 +65,7 @@ module UsefullAttachment
     private
     
     def validate
+      respond_to?(:link)
     end
     
     

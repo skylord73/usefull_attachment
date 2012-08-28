@@ -12,7 +12,7 @@ module UsefullAttachment
     #Rename file after save if attachmentable provide a rename_attachment method
     before_save do
       #UserSession.log("Admin::Attachment#after_save respond=#{self.attachmentable.inspect}")
-      #rename(self.attachmentable.send(:attachment_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:attachment_name, true)
+      rename(self.attachmentable.send(:attachment_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:attachment_name, true)
       #UserSession.log("Admin::Attachment#after_save name=#{self.link_file_name}")
     end
     
@@ -24,7 +24,7 @@ module UsefullAttachment
                       :styles => {:import => "true"},
                       :processors => [:file_processor]
                       
-    validates_attachment_presence :link
+    #validates_attachment_presence :link
     #validates :link, :attachment_presence => true
     
     belongs_to :attachmentable , :polymorphic => true
@@ -37,7 +37,7 @@ module UsefullAttachment
     #==Note
     #Passa a to_xls solo i mime-type compatibili
     def to_record(*args)
-      if !link.blank? && self.file_content_type == "application/vnd.ms-excel"
+      if !link.blank? && self.link_content_type == "application/vnd.ms-excel"
         options = args.extract_options!
         options[:model] ||= self.attachmentable_type unless self.attachmentable_type == self.class.name
         out = self.link.to_record(*(args << options)) 

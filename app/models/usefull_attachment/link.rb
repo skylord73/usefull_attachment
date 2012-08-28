@@ -24,8 +24,8 @@ module UsefullAttachment
                       :styles => {:import => "true"},
                       :processors => [:file_processor]
                       
-    #validates_attachment_presence :file
-    validates :link, :attachment_presence => true
+    validates_attachment_presence :link
+    #validates :link, :attachment_presence => true
     
     belongs_to :attachmentable , :polymorphic => true
     

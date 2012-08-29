@@ -67,9 +67,9 @@ module UsefullAttachment
     
     #Rename file after save if attachmentable provide an attachment_name method
     def fill
-      method_name = "#{self.class.name.underscore.split("/").pop}_name"
+      to_call_name = "#{self.class.name.underscore.split("/").pop}_name"
       puts("fill method_name = #{method_name}")
-      rename(self.attachmentable.send(method_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(method_name, true)
+      rename(self.attachmentable.send(to_call_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(to_call_name, true)
     end
     
     #ToDo da sistemare perchè non fa testo... è una prova del cazzo!!!!

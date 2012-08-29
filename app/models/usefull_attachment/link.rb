@@ -15,13 +15,7 @@ module UsefullAttachment
     acts_as_monitor
     
     before_validation :validate
-    
-    #Rename file after save if attachmentable provide an attachment_name method
-    before_save do
-      #UserSession.log("Admin::Attachment#after_save respond=#{self.attachmentable.inspect}")
-      rename(self.attachmentable.send(:attachment_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:attachment_name, true)
-      #UserSession.log("Admin::Attachment#after_save name=#{self.link_file_name}")
-    end
+    before_save :fill
     
     has_attached_file :link,
                       #:path => "/mnt/WebGatec/:type/:type_id/:filename",
@@ -70,6 +64,13 @@ module UsefullAttachment
       
     private
     
+    #Rename file after save if attachmentable provide an attachment_name method
+    def fill
+      method_name = class.name.undescore.split("/").pop
+      rename(self.attachmentable.send(method_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:method_name, true)
+    end
+    
+    #ToDo da sistemare perchè non fa testo... è una prova del cazzo!!!!
     def validate
       respond_to?(:link_file_name)
     end

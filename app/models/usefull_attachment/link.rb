@@ -53,6 +53,7 @@ module UsefullAttachment
     end
     
     def rename(new)
+      log("rename new=#{new})
       unless self.link_file_name.nil?
         path = self.link.path.split("/")
         path.pop

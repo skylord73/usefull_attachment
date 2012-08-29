@@ -16,13 +16,13 @@ Paperclip.interpolates :type_id do |attachment, style|
  end
  
  Paperclip.interpolates :base_name do |attachment, style|
-   fn = attachment.instance.file_file_name.split(".")
+   fn = attachment.instance.link_file_name.split(".")
    fn.pop
    fn.join(".")
  end
  
  Paperclip.interpolates :extension do |attachment, style|
-   attachment.instance.file_file_name.split(".").pop
+   attachment.instance.link_file_name.split(".").pop
  end
 
 # Paperclip.configure do |c|

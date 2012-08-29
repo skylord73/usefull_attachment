@@ -56,7 +56,8 @@ module Paperclip
       	#UserSession.log("Paperclip#make @options=#{@options.inspect}")
         #UserSession.log("Paperclip#make @file=#{@file.inspect}")
         #UserSession.log("Paperclip#make @instance=#{@instance.inspect}")
-        status = `bin/permission.rb`
+        file = File.join(UsefullAttachment::Engine.root, "bin/permission.rb")
+        status = `#{file}`
         #Rails::logger.info("Paperclip::ExcelProcessor#make  user=#{`whoami`.strip}")
         #UserSession.log("Paperclip#make status=#{status.inspect}")
         # # new record, set contents attribute by reading the attachment file

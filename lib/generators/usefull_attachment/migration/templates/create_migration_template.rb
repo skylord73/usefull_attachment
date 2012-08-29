@@ -5,11 +5,13 @@ class UsefullAttachmentCreateLinks < ActiveRecord::Migration
       t.string      :description
       t.string      :typology
       
-      t.integer     :created_by
-      t.integer     :updated_by
+      t.has_attached_file :link
+      
+      t.integer    :created_by
+      t.integer    :updated_by
       t.timestamps
       t.string      :type
-      t.integer     :attachmentable_id
+      t.integer    :attachmentable_id
       t.string      :attachmentable_type, :limit => 100, :null => false
       
     end

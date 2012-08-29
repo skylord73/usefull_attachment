@@ -53,7 +53,7 @@ module UsefullAttachment
     end
     
     def rename(new)
-      log("rename new=#{new})
+      log("rename new=#{new}")
       unless self.link_file_name.nil?
         path = self.link.path.split("/")
         path.pop
@@ -68,7 +68,7 @@ module UsefullAttachment
     #Rename file after save if attachmentable provide an attachment_name method
     def fill
       method_name = "#{self.class.name.underscore.split("/").pop}_name"
-      puts("Nome metotodo= " + method_name)
+      log("fill method_name = #{method_name}")
       rename(self.attachmentable.send(method_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:method_name, true)
     end
     

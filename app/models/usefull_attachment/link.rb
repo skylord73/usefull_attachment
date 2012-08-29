@@ -66,7 +66,7 @@ module UsefullAttachment
     
     #Rename file after save if attachmentable provide an attachment_name method
     def fill
-      method_name = self.class.name.underscore.split("/").pop
+      method_name = "#{self.class.name.underscore.split("/").pop}_name"
       puts("Nome metotodo= " + method_name)
       rename(self.attachmentable.send(method_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:method_name, true)
     end

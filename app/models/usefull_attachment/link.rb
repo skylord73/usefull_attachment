@@ -69,7 +69,7 @@ module UsefullAttachment
     def fill
       method_name = "#{self.class.name.underscore.split("/").pop}_name"
       log("fill method_name = #{method_name}")
-      rename(self.attachmentable.send(method_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(:method_name, true)
+      rename(self.attachmentable.send(method_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(method_name, true)
     end
     
     #ToDo da sistemare perchè non fa testo... è una prova del cazzo!!!!

@@ -69,6 +69,7 @@ module UsefullAttachment
     def fill
       to_call_name = "#{self.class.name.underscore.split("/").pop}_name"
       puts("fill respond_to? = #{attachmentable.respond_to?(to_call_name, true)}")
+      puts("Method name= #{to_call_name}")
       rename(self.attachmentable.send(to_call_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(to_call_name, true)
     end
     

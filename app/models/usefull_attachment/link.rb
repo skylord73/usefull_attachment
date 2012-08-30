@@ -17,6 +17,7 @@ module UsefullAttachment
     before_validation :validate
     before_save :fill
     
+    #ToDo aggiungere il cambio permessi al postprocessore di default, che fa il ridemsionamento immagine
     has_attached_file :link,
                       #:path => "/mnt/WebGatec/:type/:type_id/:filename",
                       :path => :get_path,

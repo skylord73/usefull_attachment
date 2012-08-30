@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
   s.add_dependency "usefull_filter"
   s.add_dependency "usefull_table"
   s.add_dependency "will_paginate"
-  
+  s.add_dependency "store_base_sti_class_for_3_0"
 end
 

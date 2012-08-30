@@ -1,4 +1,10 @@
 #require 'lib/paperclip_processors/excel_processor.rb'
+
+#Attiva la patch della gemma store_base_sti_class_for_3_0
+#corregge il problema di avere nelle classi polimorfiche il polymorphic_typ = parent.class e non class
+#
+ActiveRecord::Base.store_base_sti_class = false
+
 #Paperclip Initializer
 
 #Percorso di Convert

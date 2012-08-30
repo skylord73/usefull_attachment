@@ -11,6 +11,7 @@ gem "paperclip"
 gem "usefull_filter", :path => "/home/www/gems/usefull_filter" 
 gem "usefull_table", :path => "/home/www/gems/usefull_table"
 gem "will_paginate"
+gem  "store_base_sti_class_for_3_0"
 
 group :development, :test do
   gem "ruby-debug"

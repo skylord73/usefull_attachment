@@ -24,7 +24,7 @@ module UsefullAttachment
                       :url => :get_url,
                       #Nota: le options di :styles devono essere String altrimenti si pianta tutto
                       :styles => {:thumb => ["100x100>", :png]},
-                      processors => [:thumb, :file_processor]
+                      :processors => [:thumb, :file_processor]
                       
     
     #validates_attachment_presence :link

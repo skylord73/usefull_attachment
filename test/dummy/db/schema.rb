@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713145912) do
+ActiveRecord::Schema.define(:version => 20120716103346) do
 
   create_table "usefull_attachment_links", :force => true do |t|
     t.string   "type"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120713145912) do
     t.datetime "updated_at"
     t.integer  "attachmentable_id"
     t.string   "attachmentable_type", :limit => 100, :null => false
+    t.string   "typology"
   end
 
   create_table "users", :force => true do |t|

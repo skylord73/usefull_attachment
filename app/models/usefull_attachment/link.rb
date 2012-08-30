@@ -28,7 +28,7 @@ module UsefullAttachment
     
     #validates_attachment_presence :link
     #validates :link, :attachment_presence => true
-    #validates :link_file_name, :presence => true
+    validates :link_file_name, :presence => true
     
     belongs_to :attachmentable , :polymorphic => true
     

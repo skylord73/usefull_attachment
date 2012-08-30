@@ -32,6 +32,7 @@ module UsefullAttachment
     
     belongs_to :attachmentable , :polymorphic => true
     
+    delegate :url, :to => :link
     
     #Importa il file nel modello dichiarato vedi Spreadsheet::Workbook#to_record
     #*	:model => passa la parent class della tabella però ha sempre la precedenza il nome del foglio di lavoro se è un modello valido

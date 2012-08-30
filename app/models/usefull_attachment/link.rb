@@ -22,7 +22,7 @@ module UsefullAttachment
                       :path => :get_path,
                       :url => :get_url,
                       #Nota: le options di :styles devono essere String altrimenti si pianta tutto
-                      :styles => {:import => "true"},
+                      :styles => {:medium => "300x300", :large => "600x600"},
                       :processors => [:file_processor]
                       
     

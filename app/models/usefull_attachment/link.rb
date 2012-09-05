@@ -23,7 +23,7 @@ module UsefullAttachment
                       :path => :get_path,
                       :url => :get_url,
                       #Nota: le options di :styles devono essere String altrimenti si pianta tutto
-                      :styles => {:thumb => ["200x300>"]},
+                      :styles => {:thumb => ["200x300>", :png]},
                       :processors => [:thumbnail, :file_processor]
                       
     

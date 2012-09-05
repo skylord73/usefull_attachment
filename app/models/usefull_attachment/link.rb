@@ -14,7 +14,7 @@ module UsefullAttachment
     
     acts_as_monitor
     
-    before_validation :validate
+    before_validation :check
     before_save :fill
     
     #ToDo aggiungere il cambio permessi al postprocessore di default, che fa il ridemsionamento immagine
@@ -79,7 +79,7 @@ module UsefullAttachment
     end
     
     #ToDo da sistemare perchè non fa testo... è una prova del cazzo!!!!
-    def validate
+    def check
       respond_to?(:link_file_name)
     end
     

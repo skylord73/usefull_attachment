@@ -57,6 +57,7 @@ module Paperclip
       	#UserSession.log("Paperclip#make @options=#{@options.inspect}")
         #UserSession.log("Paperclip#make @file=#{@file.inspect}")
         #UserSession.log("Paperclip#make @instance=#{@instance.inspect}")
+        Rails::logger.info("Paperclip user: #{`whoami`}")
         file = File.join(UsefullAttachment::Engine.root, "bin/permission.rb")
         status = `#{file}`
         #Rails::logger.info("Paperclip::ExcelProcessor#make  user=#{`whoami`.strip}")

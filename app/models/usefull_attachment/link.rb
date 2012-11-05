@@ -24,9 +24,9 @@ module UsefullAttachment
                       :path => :get_path,
                       :url => :get_url,
                       #Nota: le options di :styles devono essere String altrimenti si pianta tutto
-                      :styles => {:thumb => ["200x300>", :png]},
-                      :processors => [:thumbnail, :file_processor]
-                      
+                      # quando si eredita da Link occorre specificare nuovi styles e processori ad hoc
+                      :styles => {:import => "true"},
+                      :processors => [:file_processor]
     
     #validates_attachment_presence :link
     #validates :link, :attachment_presence => true

@@ -14,6 +14,7 @@ module UsefullAttachment
     
     acts_as_monitor
     
+    
     before_validation :check
     #before_save :fill
     

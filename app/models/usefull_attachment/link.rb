@@ -3,7 +3,7 @@
 #Salava i documenti in /mnt/Webgatec/<namespace>/<class>/id/file_name
 #
 #==Descrizione Campi
-#-  type => Nome della sottoclasse di Lionk che ha generato l'allegato
+#-  type => Nome della sottoclasse di Link che ha generato l'allegato
 #-  attachmentable_type => classe a cui è collegato l'allegato
 #-  attachmentable_id => id della classa a cui è collegato l'allegato
 #

@@ -17,7 +17,6 @@ module UsefullAttachment
     
     acts_as_monitor
     
-    
     before_validation :check
     #before_save :fill
     
@@ -96,11 +95,9 @@ module UsefullAttachment
       get_path
     end
     
-    
     def error_missing?
       !File.exists?(self.link.path)
     end
-    
     
     #Gli viene passato un modello e restituisce il nome dell'association relativa se esiste
     def find_association(model)

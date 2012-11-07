@@ -1,7 +1,10 @@
 #Gestisce gli allegati dei documenti
 #
-#Salava i documenti in /mnt/Webgatec/<namespace>/<class>/id/file_name
-#
+#Salva i documenti in /mnt/Webgatec/<namespace>/<class>/id/file_name
+#   Per implementare nuove tipologie di attachments occorre ereditare da questa
+#   classe e ridefinire all'occorrenza i metodi get_path e get_url (privati)
+#   se occorre modificare gli styles e i processors occorre ridefinire anche
+#   has_attached_file nella classe figlia
 #==Descrizione Campi
 #-  type => Nome della sottoclasse di Link che ha generato l'allegato
 #-  attachmentable_type => classe a cui è collegato l'allegato

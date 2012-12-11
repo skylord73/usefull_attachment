@@ -3,8 +3,8 @@
   <%= f.text_field :attachmentable_type %>
   <%= f.text_field :attachmentable_id %>
   <%= f.text_field :typology %>
-  <%= f.text_field :file_content_type %>
-  <%= f.text_field :file_file_name %>
+  <%= f.text_field :link_content_type %>
+  <%= f.text_field :link_file_name %>
   <%= f.submit %>
   
 <% end %>
@@ -20,10 +20,10 @@
   <% t.col :type %>
   <% t.col :typology %>
   <% t.col :description %>
-  <% t.col :file_file_name %>
-  <% t.col :file_file_size %>
+  <% t.col :link_file_name %>
+  <% t.col :link_file_size %>
   <% t.col :updated_at, :data_type => :DateTime %>
-  <% t.col :file_content_type %>
+  <% t.col :link_content_type %>
   <% t.col :created_by %>
   <% t.col :updated_by %>
 <% end %>

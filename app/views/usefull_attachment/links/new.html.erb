@@ -1,4 +1,3 @@
-
 <%= form_for @attachment, :url => usefull_attachment_links_path, :html => { :multipart => true } do |form| %>
 	Parent Class<%= form.text_field :attachmentable_type %>
 	Type<%= form.text_field :type %>
@@ -7,4 +6,3 @@
   Typology <%= form.text_field :typology %>
   <%= form.submit %>
 <% end %>
-

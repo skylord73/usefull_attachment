@@ -76,6 +76,7 @@ module UsefullAttachment
     #Rename file after save if attachmentable provide an attachment_name method
     def fill
       to_call_name = "#{self.class.name.underscore.split("/").pop}_name"
+      mylog("fill respond_to? = #{attachmentable.respond_to?(to_call_name, true)}")
       puts("fill respond_to? = #{attachmentable.respond_to?(to_call_name, true)}")
       puts("Method name= #{to_call_name}")
       rename(self.attachmentable.send(to_call_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(to_call_name, true)
@@ -85,12 +86,11 @@ module UsefullAttachment
     def check
       respond_to?(:link_file_name)
     end
-    
-    
+
     def get_path
       "/mnt/WebGatec/:type/:type_id/:base_name.:extension"
     end
-    
+
     def get_url
       get_path
     end

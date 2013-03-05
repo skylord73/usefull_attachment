@@ -39,7 +39,19 @@ module UsefullAttachment
     # ==CLASS Methods
     class<<self
       # importa allegati attraversando rami di directory
+      # ogni path è fatto così: /mnt/WebGatec/namespace/model/id/filename.ext
+      # 
       def folders_to_records
+        Dir["/mnt/**/*"].each do |file|
+          if File.file?(file)}
+            file_path_name = file.split("/")
+            file_name = file_path_name.pop
+            id = file_path_name.pop
+            modello = file_path_name.pop
+            name_space = file_path_name.pop
+          end
+          puts file_name
+        end
       end
       #Start Private Class Methods
       private

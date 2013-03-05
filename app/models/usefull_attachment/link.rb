@@ -35,8 +35,16 @@ module UsefullAttachment
     validates :link_file_name, :presence => true
     
     belongs_to :attachmentable , :polymorphic => true
+       
+    # ==CLASS Methods
+    class<<self
+      # importa allegati attraversando rami di directory
+      def folders_to_records
+      end
+      #Start Private Class Methods
+      private
+    end
     
-        
     #Importa il file nel modello dichiarato vedi Spreadsheet::Workbook#to_record
     #*	:model => passa la parent class della tabella però ha sempre la precedenza il nome del foglio di lavoro se è un modello valido
     #

@@ -52,6 +52,7 @@ module UsefullAttachment
           end
           if is_num?(id) 
             # try to build new record
+            puts name_space + '::' + modello
             full_class_name = name_space.camelize + '::' + modello.camelize
             if class_defined?(full_class_name)
               self.create(:description => 'prova',

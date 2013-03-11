@@ -43,7 +43,7 @@ module UsefullAttachment
       # 
       def folders_to_records
         Dir["/mnt/**/*"].each do |file|
-          if File.file?(file)}
+          if File.file?(file)
             file_path_name = file.split("/")
             file_name = file_path_name.pop
             id = file_path_name.pop

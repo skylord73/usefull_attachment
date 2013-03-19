@@ -52,7 +52,7 @@ module UsefullAttachment
           end
           
           # if is_num?(id)
-            puts "#{name_space} #{modello} #{id} #{file_name}"
+            puts "#{name_space} #{modello} #{id} #{file_name}" if is_num?(id)
             # try to build new record
             # puts name_space + '::' + modello
             # full_class_name = name_space.camelize + '::' + modello.camelize

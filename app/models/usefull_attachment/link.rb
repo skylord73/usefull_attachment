@@ -49,10 +49,9 @@ module UsefullAttachment
             id = file_path_name.pop
             modello = file_path_name.pop
             name_space = file_path_name.pop
-            puts name_space + ' ' + modello + ' ' + id + ' ' + file_name
- 
           end
-          # if is_num?(id) 
+          if is_num?(id)
+            puts name_space + ' ' + modello + ' ' + id + ' ' + file_name
             # try to build new record
             # puts name_space + '::' + modello
             # full_class_name = name_space.camelize + '::' + modello.camelize
@@ -65,7 +64,7 @@ module UsefullAttachment
                           # :attachmentable_id => id,
                           # :attachmentable_type => full_class_name)
             # end
-          # end
+          end
         end
       end
       

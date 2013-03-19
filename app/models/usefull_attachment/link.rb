@@ -42,31 +42,30 @@ module UsefullAttachment
       # ogni path è fatto così: /mnt/WebGatec/namespace/model/id/filename.ext
       # 
       def folders_to_records
-        Dir["/mnt/**/*"].each do |file|
+        Dir["/mnt/WebGatec/**/*"].each do |file|
           if File.file?(file)
             file_path_name = file.split("/")
             file_name = file_path_name.pop
             id = file_path_name.pop
             modello = file_path_name.pop
             name_space = file_path_name.pop
+            puts name_space + ' ' + modello + ' ' + id + ' ' + file_name
+ 
           end
-          if is_num?(id) 
+          # if is_num?(id) 
             # try to build new record
-            puts name_space + '::' + modello
-            full_class_name = name_space.camelize + '::' + modello.camelize
-            if class_defined?(full_class_name)
-              self.create(:description => 'prova',
-                          :link_file_size => file.size,
-                          :link_content_type => MIME::Types.type_for(file).first.content_type,
-                          :link_file_name => File.basename(file),
-                          :link_updated_at => Time.now ,
-                          :created_at => Time.now,
-                          :updated_at => Time.now,
-                          :type => get_attachment_type,
-                          :attachmentable_id => id,
-                          :attachmentable_type => full_class_name)
-            end
-          end
+            # puts name_space + '::' + modello
+            # full_class_name = name_space.camelize + '::' + modello.camelize
+            # if class_defined?(full_class_name)
+              # self.find_or_create(:description => 'prova',
+                          # :link_file_size => file.size,
+                          # :link_content_type => MIME::Types.type_for(file).first.content_type,
+                          # :link_file_name => File.basename(file),
+                          # :type => get_attachment_type,
+                          # :attachmentable_id => id,
+                          # :attachmentable_type => full_class_name)
+            # end
+          # end
         end
       end
       
@@ -92,9 +91,12 @@ module UsefullAttachment
       
       def get_attachment_type(attach_type)
         case attach_type
-          when 'Magazzino::Document' : 'Documenti::Attachment'
-          when 'Utility::PhoneQueue' : 'Utility::PhoneQueueAttach'
-          when 'Interventi::Activity': 'Interventi::Attachment'
+          when 'Magazzino::Document'           : 'Documenti::Attachment'
+          when 'Magazzino::Limbo'              : 'Documenti::Attachment'
+          when 'Utility::PhoneQueue'           : 'Utility::PhoneQueueAttach'
+          when 'Interventi::Activity'          : 'Interventi::Attachment'
+          when 'Interventi::Import'            : 'Interventi::Attachment'
+          when 'Consuntivazioni::BillingCheck' : 'Admin::Attachment'
         end
       end
     

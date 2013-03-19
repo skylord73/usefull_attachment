@@ -51,7 +51,7 @@ module UsefullAttachment
             name_space = file_path_name.pop
           end
           if is_num?(id)
-            puts name_space + ' ' + modello + ' ' + id + ' ' + file_name
+            puts name_space.inspect + ' ' + modello.inspect + ' ' + id.inspect + ' ' + file_name.inspect
             # try to build new record
             # puts name_space + '::' + modello
             # full_class_name = name_space.camelize + '::' + modello.camelize

@@ -55,7 +55,7 @@ module UsefullAttachment
             puts "#{name_space} #{modello} #{id} #{file_name}" 
             # try to build new record
             # puts name_space + '::' + modello
-            full_class_name = name_space.camelize + '::' + modello.camelize
+            full_class_name = name_space.camelize + '::' + modello.camelize if !name_space.blank?
             if class_defined?(full_class_name)
               self.find_or_create(:description => 'prova',
                           :link_file_size => file.size,

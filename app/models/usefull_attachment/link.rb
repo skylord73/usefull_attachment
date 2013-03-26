@@ -51,7 +51,7 @@ module UsefullAttachment
             name_space = file_path_name.pop
           end
           
-          if is_num?(id)
+          if is_num?(id) && !id.blank?
             puts "#{name_space} #{modello} #{id} #{file_name}" 
             # try to build new record
             # puts name_space + '::' + modello

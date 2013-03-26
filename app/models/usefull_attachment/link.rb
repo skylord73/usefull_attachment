@@ -64,6 +64,7 @@ module UsefullAttachment
                           :type => get_attachment_type,
                           :attachmentable_id => id,
                           :attachmentable_type => full_class_name)
+              puts self.inspect
             end
           end
         end

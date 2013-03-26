@@ -61,7 +61,7 @@ module UsefullAttachment
                           :link_file_size => file.size,
                           :link_content_type => MIME::Types.type_for(file).first.content_type,
                           :link_file_name => File.basename(file),
-                          :type => get_attachment_type,
+                          :type => get_attachment_type(full_class_name),
                           :attachmentable_id => id,
                           :attachmentable_type => full_class_name)
               puts self.inspect

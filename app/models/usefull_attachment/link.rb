@@ -75,8 +75,8 @@ module UsefullAttachment
       
       def class_defined?(s) 
         begin
-          puts s
-          eval s.to_S
+          
+          eval s.to_s
           true
         rescue NameError
           false

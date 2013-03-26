@@ -51,21 +51,21 @@ module UsefullAttachment
             name_space = file_path_name.pop
           end
           
-          # if is_num?(id)
-            puts "#{name_space} #{modello} #{id} #{file_name}" if is_num?(id)
+          if is_num?(id)
+            puts "#{name_space} #{modello} #{id} #{file_name}" 
             # try to build new record
             # puts name_space + '::' + modello
-            # full_class_name = name_space.camelize + '::' + modello.camelize
-            # if class_defined?(full_class_name)
-              # self.find_or_create(:description => 'prova',
-                          # :link_file_size => file.size,
-                          # :link_content_type => MIME::Types.type_for(file).first.content_type,
-                          # :link_file_name => File.basename(file),
-                          # :type => get_attachment_type,
-                          # :attachmentable_id => id,
-                          # :attachmentable_type => full_class_name)
-            # end
-          # end
+            full_class_name = name_space.camelize + '::' + modello.camelize
+            if class_defined?(full_class_name)
+              self.find_or_create(:description => 'prova',
+                          :link_file_size => file.size,
+                          :link_content_type => MIME::Types.type_for(file).first.content_type,
+                          :link_file_name => File.basename(file),
+                          :type => get_attachment_type,
+                          :attachmentable_id => id,
+                          :attachmentable_type => full_class_name)
+            end
+          end
         end
       end
       

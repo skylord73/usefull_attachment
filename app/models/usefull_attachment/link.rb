@@ -51,20 +51,23 @@ module UsefullAttachment
             name_space = file_path_name.pop
           end
           
-          if is_num?(id) && !id.blank?
-            puts "#{name_space} #{modello} #{id} #{file_name}" 
+          if is_num?(id) && !id.blank? 
             # try to build new record
             # puts name_space + '::' + modello
-            full_class_name = name_space.camelize + '::' + modello.camelize if !name_space.blank?
-            if class_defined?(full_class_name)
-              self.find_or_create_by_type_and_attachmentable_id_and_attachmentable_type(:description => 'prova',
-                                  :link_file_size => file.size,
-                                  :link_content_type => MIME::Types.type_for(file).first.content_type,
-                                  :link_file_name => File.basename(file),
-                                  :type => get_attachment_type(full_class_name),
-                                  :attachmentable_id => id,
-                                  :attachmentable_type => full_class_name)
-              puts self.inspect
+            begin
+              full_class_name = name_space.camelize + '::' + modello.camelize if !name_space.blank?
+              if class_defined?(full_class_name)
+                self.find_or_create_by_type_and_attachmentable_id_and_attachmentable_type(:description => 'prova',
+                                    :link_file_size => file.size,
+                                    :link_content_type => MIME::Types.type_for(file).first.content_type,
+                                    :link_file_name => File.basename(file),
+                                    :type => get_attachment_type(full_class_name),
+                                    :attachmentable_id => id,
+                                    :attachmentable_type => full_class_name)
+              end
+              puts "OK => #{name_space} #{modello} #{id} #{file_name}"
+            rescue
+              puts "KO => #{name_space} #{modello} #{id} #{file_name}"            
             end
           end
         end
@@ -75,7 +78,6 @@ module UsefullAttachment
       
       def class_defined?(s) 
         begin
-          
           eval s.to_s
           true
         rescue NameError

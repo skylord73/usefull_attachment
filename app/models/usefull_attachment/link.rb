@@ -95,12 +95,18 @@ module UsefullAttachment
       
       def get_attachment_type(attach_type)
         case attach_type
-          when 'Magazzino::Document'           : return 'Documenti::Attachment'
-          when 'Magazzino::Limbo'              : return 'Documenti::Attachment'
-          when 'Utility::PhoneQueue'           : return 'Utility::PhoneQueueAttach'
-          when 'Interventi::Activity'          : return 'Interventi::Attachment'
-          when 'Interventi::Import'            : return 'Interventi::Attachment'
-          when 'Consuntivazioni::BillingCheck' : return 'Admin::Attachment'
+          when 'Magazzino::Document'
+            return 'Documenti::Attachment'
+          when 'Magazzino::Limbo'
+            return 'Documenti::Attachment'
+          when 'Utility::PhoneQueue'
+            return 'Utility::PhoneQueueAttach'
+          when 'Interventi::Activity'
+            return 'Interventi::Attachment'
+          when 'Interventi::Import'
+            return 'Interventi::Attachment'
+          when 'Consuntivazioni::BillingCheck'
+            return 'Admin::Attachment'
         end
       end
     

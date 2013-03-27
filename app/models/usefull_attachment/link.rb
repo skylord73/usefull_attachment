@@ -66,6 +66,7 @@ module UsefullAttachment
                                     :attachmentable_type => full_class_name)
               end
               puts "OK => #{name_space} #{modello} #{id} #{file_name}"
+              puts get_attachment_type(full_class_name)
             rescue
               puts "KO => #{name_space} #{modello} #{id} #{file_name}"            
             end

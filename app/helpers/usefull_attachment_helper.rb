@@ -7,7 +7,7 @@ module UsefullAttachmentHelper
       form_for object.attachments.new, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
         concat(f.hidden_field :attachmentable_type)
         concat(f.hidden_field :attachmentable_id)
-        concat(f.file_field :file)
+        concat(f.file_field :link)
         concat(f.text_field :description) if description
         concat(f.submit)
       end
@@ -21,7 +21,7 @@ module UsefullAttachmentHelper
         form_for object.build_avatar, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
           concat(f.hidden_field :attachmentable_type)
           concat(f.hidden_field :attachmentable_id)
-          concat(f.file_field :file)
+          concat(f.file_field :link)
           concat(f.submit 'Avatar')
         end
       else
@@ -34,15 +34,14 @@ module UsefullAttachmentHelper
   #Create a table to show attachments
   def list_attachments_for(object, full = false)
     if object.respond_to?(:attachments) && object.attachments.present?
-      #Rails::logger.info("list_attachments_for obj.links=#{object.links.inspect}")
-      table_for object.attachments do |t|
-        #t.monitor
+      table_for object.attachments.where(:id.ne => nil), :export => {:visible => false} do |t|
+        t.monitor
         t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object.id)} 
         t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object.id)}
-        t.col :file_file_name
+        t.col :link_file_name
         t.col :description
-        t.col :file_file_size if full
-        t.col :file_file_updated_at if full
+        t.col :link_file_size if full
+        t.col :link_file_updated_at if full
       end
     end
   end
@@ -50,7 +49,7 @@ module UsefullAttachmentHelper
   #Draw images marked as :avatar
   def show_avatar_for(object, *args)
     if object.respond_to?(:avatar) && object.avatar.present?
-      image_tag(object.avatar.file.url, :size => "200x200")
+      image_tag(object.avatar.link.url, :size => "200x200")
     end
   end
   

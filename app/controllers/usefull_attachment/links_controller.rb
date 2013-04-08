@@ -23,8 +23,8 @@ module UsefullAttachment
       @attachment = Link.find(params[:id])
       respond_to do |format|
         format.html do
-          raise FileMissing.new(:file => @attachment.file.path) unless File.exist?(@attachment.file.path)
-          send_file @attachment.file.path, :type => @attachment.file_content_type
+          raise FileMissing.new(:file => @attachment.link.path) unless File.exist?(@attachment.link.path)
+          send_file @attachment.link.path, :type => @attachment.link_content_type
         end
       end
     rescue => e

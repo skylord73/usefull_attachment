@@ -28,7 +28,7 @@ module UsefullAttachment
         end
       end
     rescue => e
-      flash[:alert] = e.message
+      flash[:alert] = t("not_downloaded", :message => e.message)
       redirect_to :back
     end
 
@@ -37,9 +37,15 @@ module UsefullAttachment
       @attachment.destroy
 
       respond_to do |format|
-       format.html { redirect_to :back }
-       format.xml  { head :ok }
+        format.html do
+          redirect_to :back, :notice => t("deleted")
+        end
+        format.xml  { head :ok }
       end
+      
+    rescue => e
+      flash[:alert] = t("not_deleted", :message => e.message)
+      redirect_to :back
     end
 
   end

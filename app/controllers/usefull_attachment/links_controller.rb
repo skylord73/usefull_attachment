@@ -16,7 +16,10 @@ module UsefullAttachment
       Attachment.create(params[:usefull_attachment_attachment].deep_merge!(user)) if params[:usefull_attachment_attachment].present?
       Avatar.create(params[:usefull_attachment_avatar].deep_merge!(user)) if params[:usefull_attachment_avatar].present?
       Link.create(params[:usefull_attachment_link].deep_merge!(user)) if params[:usefull_attachment_link].present?
-      redirect_to :action => "index"
+      redirect_to :action => "index", :notice => t("created")
+    rescue => e
+      flash[:alert] = t("not_created", :message => e.message)
+      redirect_to :back
     end
 
     def download

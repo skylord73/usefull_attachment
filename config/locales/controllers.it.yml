@@ -3,6 +3,8 @@ it:
   usefull_attachment:
     links_controller:
       deleted: "Allegato rimosso con successo!"
-      not_deleted: "Allegato non rimosso! Errore: %{message}"
+      not_deleted: "Impossibile eliminare l'allegato! Errore: %{message}"
       not_downloaded: "Errore nel download dell'allegato! %{message}"
+      created: "Allegato caricato con successo!"
+      not_created: "Impossibile caricare l'allegato! Errore : %{message}"
      

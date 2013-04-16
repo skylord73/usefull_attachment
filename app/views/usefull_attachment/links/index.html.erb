@@ -6,10 +6,8 @@
   <%= f.text_field :link_content_type %>
   <%= f.text_field :link_file_name %>
   <%= f.submit %>
-  
 <% end %>
 
-<span class="span-24" style="overflow:scroll">
 <%=table_for(@attachments,@search) do |t| %>
   <% t.monitor %>
 	<% t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object)} %>
@@ -27,5 +25,5 @@
   <% t.col :created_by %>
   <% t.col :updated_by %>
 <% end %>
-</span>
+
 <%= link_to "New", new_usefull_attachment_link_path %>

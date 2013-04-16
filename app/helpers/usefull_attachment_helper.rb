@@ -34,7 +34,7 @@ module UsefullAttachmentHelper
   #Create a table to show attachments
   def list_attachments_for(object, full = false)
     if object.respond_to?(:attachments) && object.attachments.present?
-      table_for object.attachments.where(:id.ne => nil), :export => {:visible => false} do |t|
+      table_for object.attachments.where(:id.ne => nil), :export => {:visible => false}, :html => {:style => "overflow:scroll;"} do |t|
         t.monitor
         t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object.id)} 
         t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object.id)}

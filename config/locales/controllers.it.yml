@@ -7,4 +7,6 @@ it:
       not_downloaded: "Errore nel download dell'allegato! %{message}"
       created: "Allegato caricato con successo!"
       not_created: "Impossibile caricare l'allegato! Errore : %{message}"
+      sure: "Sei sicuro di voler cancellare questo allegato?"
+      
      

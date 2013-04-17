@@ -40,7 +40,7 @@ module UsefullAttachmentHelper
           concat(f.submit 'Avatar')
         end
       else
-        link_to 'Delete', usefull_attachment_link_path(object.avatar.id), :method => :delete, :confirm => 'Are you sure'
+        link_to 'Delete', usefull_attachment_link_path(object.avatar.id), :method => :delete, :confirm => " Are you sure you want to delete this avatar?"
       end
     end
   end

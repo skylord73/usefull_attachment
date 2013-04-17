@@ -32,11 +32,12 @@ module UsefullAttachmentHelper
   
   #==Options
   #
-  #-  :full => true   #visualizza tutte le opzione
+  #-  :full => true   #visualizza tutte le opzioni
   #-  :hide_delete => conditions   #se vera nasconde il delete
   def list_attachments_for(object, *args)
     options = args.extract_options!
-    if object.respond_to?(:attachments) && object.attachments.present?
+    options[:full]||= false if options[:full]
+      if object.respond_to?(:attachments) && object.attachments.present?
       table_for object.attachments.where(:id.ne => nil), :export => {:visible => false} do |t|
         t.monitor
         t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object.id)} 

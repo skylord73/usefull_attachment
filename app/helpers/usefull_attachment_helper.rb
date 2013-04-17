@@ -17,7 +17,7 @@ module UsefullAttachmentHelper
     end
   end
 
-  #Creates a button to add new file to attachment system
+  # Creates a button to add new file to attachment system
   # It can't be used inside a form.
   def new_attachment_for(object, description = true)
     #ToDo check the relation type and assure is UsefullAttachment::Link
@@ -49,13 +49,11 @@ module UsefullAttachmentHelper
   
   #==Options
   #
-  #-  :full => true   #visualizza tutte le opzioni
-  #-  :hide_delete => conditions   #se vera nasconde il delete
+  #-  :full => true               # visualizza tutte le opzioni (comprese link_file_size e link_file_updated_at)
+  #-  :hide_delete => conditions  # se conditions == true nasconde il delete button
   def list_attachments_for(object, *args)
     options = args.extract_options!
-    # options[:full]||= false if options[:full]
-    mylog("\n\n\n#{options.inspect}",:options,:GREEN)
-      if object.respond_to?(:attachments) && object.attachments.present?
+    if object.respond_to?(:attachments) && object.attachments.present?
       table_for object.attachments.where(:id.ne => nil), :export => {:visible => false} do |t|
         t.monitor
         t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object.id)} 
@@ -70,19 +68,19 @@ module UsefullAttachmentHelper
   
   
   #Create a table to show attachments
-  def list_attachments_for_old(object, full = false)
-    if object.respond_to?(:attachments) && object.attachments.present?
-      table_for object.attachments.where(:id.ne => nil), :export => {:visible => false} do |t|
-        t.monitor
-        t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object.id)} 
-        t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object.id)}
-        t.col :link_file_name
-        t.col :description
-        t.col :link_file_size if full
-        t.col :link_file_updated_at if full
-      end
-    end
-  end
+  # def list_attachments_for_old(object, full = false)
+    # if object.respond_to?(:attachments) && object.attachments.present?
+      # table_for object.attachments.where(:id.ne => nil), :export => {:visible => false} do |t|
+        # t.monitor
+        # t.download :url => Proc.new {|object| download_usefull_attachment_link_path(object.id)} 
+        # t.destroy :url => Proc.new {|object| usefull_attachment_link_path(object.id)}
+        # t.col :link_file_name
+        # t.col :description
+        # t.col :link_file_size if full
+        # t.col :link_file_updated_at if full
+      # end
+    # end
+  # end
   
   #Draw images marked as :avatar
   def show_avatar_for(object, *args)

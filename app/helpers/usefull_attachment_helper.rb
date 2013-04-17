@@ -4,7 +4,7 @@ module UsefullAttachmentHelper
   def _attachment_for(*args, &block)
     options = args.extract_options!
 
-    content_tag("div", attachment_for(*(args << options.merge(:builder => UsefullAttachment::AttachmentBuilder)), &block), :class => "span-24")
+    content_tag("div", fields_for(*(args << options.merge(:builder => UsefullAttachment::AttachmentBuilder)), &block), :class => "span-24")
   end
   
   #Create a button to add new file to attachment system

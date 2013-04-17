@@ -1,11 +1,5 @@
 module UsefullAttachmentHelper
 
-  # wrapper di attachment_for
-  # def new_attachment(*args)
-    # options = args.extract_options!
-    # content_tag("div", fields_for(*(args << options.merge(:builder => UsefullAttachment::AttachmentBuilder))), :class => "span-24")
-  # end
-  
   #Create a button to add new file to attachment system
   def new_attachment_for(object, description = true)
     #ToDo check the relation type and assure is UsefullAttachment::Link

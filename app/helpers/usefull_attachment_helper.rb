@@ -1,20 +1,12 @@
 module UsefullAttachmentHelper
-  
-  class AttachmentBuilder < ActionView::Helpers::FormBuilder
-    def attachment_for(description = true)
-      #ToDo check the relation type and assure is UsefullAttachment::Link
-      if @object.respond_to?(:attachments)
-        fields_for @object.attachments, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
-          @template.concat(f.hidden_field :attachmentable_type)
-          @template.concat(f.hidden_field :attachmentable_id)
-          @template.concat(f.file_field :link)
-          @template.concat(f.text_field :description) if description
-        end
-      end
-    end
+
+  # wrapper di attachment_for
+  def attachment_for(*args, &block)
+    options = args.extract_options!
+
+    content_tag("div", attachment_for(*(args << options.merge(:builder => UsefullAttachment::WgFormBuilder)), &block), :class => "span-24")
   end
-
-
+  
   #Create a button to add new file to attachment system
   def new_attachment_for(object, description = true)
     #ToDo check the relation type and assure is UsefullAttachment::Link

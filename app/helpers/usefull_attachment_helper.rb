@@ -1,9 +1,8 @@
 module UsefullAttachmentHelper
 
   # wrapper di attachment_for
-  def _attachment_for(*args, &block)
+  def attachment_for(*args, &block)
     options = args.extract_options!
-
     content_tag("div", fields_for(*(args << options.merge(:builder => UsefullAttachment::AttachmentBuilder)), &block), :class => "span-24")
   end
   

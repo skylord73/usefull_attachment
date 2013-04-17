@@ -1,10 +1,10 @@
 module UsefullAttachmentHelper
 
   # wrapper di attachment_for
-  def attachment_for(*args)
-    options = args.extract_options!
-    content_tag("div", fields_for(*(args << options.merge(:builder => UsefullAttachment::AttachmentBuilder))), :class => "span-24")
-  end
+  # def new_attachment(*args)
+    # options = args.extract_options!
+    # content_tag("div", fields_for(*(args << options.merge(:builder => UsefullAttachment::AttachmentBuilder))), :class => "span-24")
+  # end
   
   #Create a button to add new file to attachment system
   def new_attachment_for(object, description = true)
@@ -17,8 +17,7 @@ module UsefullAttachmentHelper
         concat(f.text_field :description) if description
         concat(f.submit)
       end
-    end
-    
+    end    
   end
   
   def new_avatar_for(object)

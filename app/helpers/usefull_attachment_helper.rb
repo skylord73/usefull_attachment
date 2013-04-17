@@ -1,14 +1,17 @@
 module UsefullAttachmentHelper
 
+  # To use inside a form:
   # <% form_for(@object) do |f| %>
   #   <% new_attachment_for_ f %>
   def new_attachment_for_(form,description = true)
     if form.object.respond_to?(:attachments)
       form.fields_for :attachments, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
-        concat(f.hidden_field :attachmentable_type)
-        concat(f.hidden_field :attachmentable_id)
-        concat(f.file_field :link)
-        concat(f.text_field :description) if description
+        if f.object.new_record?
+          concat(f.hidden_field :attachmentable_type)
+          concat(f.hidden_field :attachmentable_id)
+          concat(f.file_field :link)
+          concat(f.text_field :description) if description
+        end
       end
     end
   end

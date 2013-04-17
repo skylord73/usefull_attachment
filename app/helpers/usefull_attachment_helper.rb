@@ -1,9 +1,9 @@
 module UsefullAttachmentHelper
 
-  # To use inside a form:
+  # To use inside a form (in the same way 'fields_for' is used):
   # <% form_for(@object) do |f| %>
-  #   <% new_attachment_for_ f %>
-  def new_attachment_for_(form,description = true)
+  #   <% attachment_for f %>
+  def attachment_for(form,description = true)
     if form.object.respond_to?(:attachments)
       form.fields_for :attachments, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
         if f.object.new_record?

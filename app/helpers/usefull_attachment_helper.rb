@@ -36,7 +36,7 @@ module UsefullAttachmentHelper
   #-  :hide_delete => conditions   #se vera nasconde il delete
   def list_attachments_for(object, *args)
     options = args.extract_options!
-    options[:full]||= false if options[:full]
+    # options[:full]||= false if options[:full]
     mylog("\n\n\n#{options.inspect}",:options,:GREEN)
       if object.respond_to?(:attachments) && object.attachments.present?
       table_for object.attachments.where(:id.ne => nil), :export => {:visible => false} do |t|

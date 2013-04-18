@@ -1,21 +1,7 @@
 module UsefullAttachmentHelper
 
-  # To use inside a form (in the same way 'fields_for' is used):
-  # <% form_for(@object) do |f| %>
-  #   <% attachment_for f %>
-  # The first argument must be a FormBuilder instance.
-  def attachment_for(form,description = true)
-    if form.object.respond_to?(:attachments)
-      form.fields_for :attachments, :html => {:multipart => true}, :url => usefull_attachment_links_path do |f|
-        if f.object.new_record?
-          concat(f.hidden_field :attachmentable_type)
-          concat(f.hidden_field :attachmentable_id)
-          concat(f.file_field :link)
-          concat(f.text_field :description) if description
-        end
-      end
-    end
-  end
+  # Il builer per allegare un file all'interno di un form è definito in UsefullHelpers::WgFormBuilder
+  # e si chiama #attachment_field. Non crea un ulteriore submit button, chiaramente.
 
   # Creates a button to add new file to attachment system
   # It can't be used inside a form.

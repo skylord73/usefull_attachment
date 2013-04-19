@@ -1,6 +1,6 @@
 module UsefullAttachmentHelper
 
-  # Il builer per allegare un file all'interno di un form è definito in UsefullHelpers::WgFormBuilder
+  # Il builder per allegare un file all'interno di un form è definito in usefull_helpers/lib/UsefullHelpers::WgFormBuilder
   # e si chiama #attachment_field. Non crea un ulteriore submit button, chiaramente.
 
   # Creates a button to add new file to attachment system

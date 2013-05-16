@@ -2,9 +2,11 @@
 <%= filter_for @search, :url => usefull_attachment_links_path do |f| %>
   <%= f.text_field :attachmentable_type %>
   <%= f.text_field :attachmentable_id %>
-  <%= f.text_field :typology %>
+  <%= f.text_field :type %>
+  <%#= f.text_field :typology %>
   <%= f.text_field :link_content_type %>
   <%= f.text_field :link_file_name %>
+  <li><br /><br /></li> <%#= Temporaneamente inserisco degli 'a capo' per riallineare i tasti di filtraggio. %>
   <%= f.submit %>
 <% end %>
 
@@ -22,8 +24,8 @@
   <% t.col :link_file_size %>
   <% t.col :updated_at, :data_type => :DateTime %>
   <% t.col :link_content_type %>
-  <% t.col :created_by %>
-  <% t.col :updated_by %>
+  <% t.col "createdby_displayname" %>
+  <% t.col "updatedby_displayname" %>
 <% end %>
 
 <%= link_to "New", new_usefull_attachment_link_path %>

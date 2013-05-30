@@ -1,5 +1,4 @@
-
-<%= filter_for @search, :url => usefull_attachment_links_path do |f| %>
+<%= filter_for @search, :html => {:class => 'usefull_filter_container span-24'}, :url => usefull_attachment_links_path do |f| %>
   <%= f.text_field :attachmentable_type %>
   <%= f.text_field :attachmentable_id %>
   <%= f.text_field :type %>

@@ -34,7 +34,7 @@ module UsefullAttachment
     #validates :link, :attachment_presence => true
     validates :link_file_name, :presence => true
     
-    belongs_to :attachmentable , :polymorphic => true
+    belongs_to :attachmentable, :polymorphic => true
        
     # ==CLASS Methods
     class<<self

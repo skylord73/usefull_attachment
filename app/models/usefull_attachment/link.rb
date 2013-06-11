@@ -147,7 +147,7 @@ module UsefullAttachment
       link.url
     end
       
-    private
+    #private
     
     #Rename file after save if attachmentable provide an attachment_name method
     def fill

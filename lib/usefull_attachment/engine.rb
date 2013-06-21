@@ -27,7 +27,6 @@ module Paperclip
       # a livello di sistema operativo, tale modalità di cancellazione però crea problemi con le share su ALfresco montate
       # tramite CIFS.
       def flush_deletes #:nodoc:
-        puts "STO ESEGUENDO IL METODO MIO !!!"
         @queued_for_delete.each do |path|
           begin
             log("deleting #{path}")
@@ -36,11 +35,12 @@ module Paperclip
             # ignore file-not-found, let everything else pass
           end
           begin
-            while(true)
-              path = File.dirname(path)
-              FileUtils.rmdir(path)
-              break if File.exists?(path) # Ruby 1.9.2 does not raise if the removal failed.
-            end
+		   path = File.dirname(path)
+            while(Dir.entries(path).empty?)
+			 puts "#{path} -> "+Dir.entries(path).empty?
+			 FileUtils.rmdir(path)
+			 path = File.dirname(path)
+		   end
           rescue Errno::EEXIST, Errno::ENOTEMPTY, Errno::ENOENT, Errno::EINVAL, Errno::ENOTDIR, Errno::EACCES
             # Stop trying to remove parent directories
           rescue SystemCallError => e

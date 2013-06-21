@@ -37,12 +37,12 @@ module Paperclip
           begin
 		   # Per controllare se la cartella è vuota verifico il numero di elementi al suo interno e gli tolgo i 2 file "di
 		   # servizio" di Alfresco, ossia "__Forza-Versione.exe" e "__Mostra-Dettagli.exe" presenti in ogni cartella esposta
-		   # da Alfresco tramite CIFS. Gli tolgo inoltre le cartelle/riferimenti del sistema operativo "." e "..". Se il numero
-            # che così ottengo è minore di 0 significa che la cartella era vuota: il numero potrebbe essere negativo in
-            # perchè WebGATeC non è sempre montato su Alfresco, per cui a volte mi trovo a togliere anche 2 elementi che in
+		   # da Alfresco tramite CIFS. Gli tolgo inoltre le/i cartelle/riferimenti del sistema operativo "." e "..". Se il
+		   # numero che così ottengo è minore di 0 significa che la cartella era vuota: il numero potrebbe essere negativo
+		   # perchè WebGATeC non è sempre montato su Alfresco, per cui a volte mi trovo a togliere anche 2 elementi che in
             # realtà non c'erano.
 		   tmp_dir = File.dirname(path)
-		   while( Dir.entries(tmp_dir).size - 2 - 2 < 0 )
+		   while( Dir.entries(tmp_dir).size - 2 - 2 <= 0 )
 			 FileUtils.rmdir(tmp_dir)
 			 tmp_dir = File.dirname(tmp_dir)
 		   end

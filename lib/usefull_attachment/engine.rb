@@ -35,7 +35,8 @@ module Paperclip
             # ignore file-not-found, let everything else pass
           end
           begin
-            while(Dir.entries(File.dirname(path)).empty?)
+		   path = File.dirname(path)
+            while(Dir.entries(path).empty?)
 			 FileUtils.rmdir(path)
 			 path = File.dirname(path)
 		   end

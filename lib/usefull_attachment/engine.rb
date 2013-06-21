@@ -38,10 +38,10 @@ module Paperclip
 		   # Per controllare se la cartella è vuota verifico il numero di elementi al suo interno e gli tolgo i 2 file "di
 		   # servizio" di Alfresco, ossia "__Forza-Versione.exe" e "__Mostra-Dettagli.exe" presenti in ogni cartella esposta
 		   # da Alfresco. Gli tolgo inoltre le cartelle/riferimenti del sistema operativo "." e "..".
-		   while(Dir.entries(File.dirname(path)).size - 2 - 2 == 0)
-		      puts "#{ Dir.entries(File.dirname(path)).size - 2 - 2 == 0}"
-			 FileUtils.rmdir(path)
-			 path = File.dirname(path)
+		   tmp_dir = File.dirname(path)
+		   while(Dir.entries(tmp_dir).size - 2 - 2 == 0)
+			 FileUtils.rmdir(tmp_dir)
+			 tmp_dir = File.dirname(tmp_dir)
 		   end
           rescue Errno::EEXIST, Errno::ENOTEMPTY, Errno::ENOENT, Errno::EINVAL, Errno::ENOTDIR, Errno::EACCES
             # Stop trying to remove parent directories

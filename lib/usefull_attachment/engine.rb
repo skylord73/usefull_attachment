@@ -24,7 +24,7 @@ module Paperclip
     module Filesystem
 
       # Patch alla cancellazione di Paperclip che tenta di cancellare tutto quello che può finchè non fallisce la cancellazione
-      # a livello di sistema operativo, tale modalità di cancellazione però crea problemi con le share su ALfresco montate
+      # a livello di sistema operativo, tale modalità di cancellazione però crea problemi con le share su Alfresco montate
       # tramite CIFS.
       def flush_deletes #:nodoc:
         @queued_for_delete.each do |path|

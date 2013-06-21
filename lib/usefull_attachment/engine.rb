@@ -39,7 +39,7 @@ module Paperclip
 		   # servizio" di Alfresco, ossia "__Forza-Versione.exe" e "__Mostra-Dettagli.exe" presenti in ogni cartella esposta
 		   # da Alfresco. Gli tolgo inoltre le cartelle/riferimenti del sistema operativo "." e "..".
 		   tmp_dir = File.dirname(path)
-		   while( Dir.entries(tmp_dir).size - 2 - 2 == 0 )
+		   while( Dir.entries(tmp_dir).size - 2 - 2 < 0 )
 			 FileUtils.rmdir(tmp_dir)
 			 tmp_dir = File.dirname(tmp_dir)
 		   end

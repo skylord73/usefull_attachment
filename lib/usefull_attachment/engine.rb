@@ -38,8 +38,9 @@ module Paperclip
 		   # Per controllare se la cartella è vuota verifico il numero di elementi al suo interno e gli tolgo i 2 file "di
 		   # servizio" di Alfresco, ossia "__Forza-Versione.exe" e "__Mostra-Dettagli.exe" presenti in ogni cartella esposta
 		   # da Alfresco.
-            while(Dir.entries(File.dirname(path)).size - 2 == 0)
-			 puts "#{ Dir.entries(File.dirname(path)).size - 2 }"
+		   puts "#{ Dir.entries(File.dirname(path)).size - 2 }"
+		   puts "#{ Dir.entries(File.dirname(path)).inspect }"
+		   while(Dir.entries(File.dirname(path)).size - 2 == 0)
 			 FileUtils.rmdir(path)
 			 path = File.dirname(path)
 		   end

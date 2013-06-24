@@ -156,9 +156,9 @@ module UsefullAttachment
       rename(self.attachmentable.send(to_call_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(to_call_name, true)
     end
     
-    # Controllo che il file che sto caricando non sia già stato caricato e che quindi non ci sia già un file con lo stesso nome. 
+    # Controllo che il file che sto caricando non sia già stato caricato. 
     def check
-      raise if File.exists?(self.link.path)
+      raise UsefullAttachment::Links::FileDuplicate if File.exists?(self.link.path)
     end
 
     def get_path

@@ -156,9 +156,9 @@ module UsefullAttachment
       rename(self.attachmentable.send(to_call_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(to_call_name, true)
     end
     
-    #ToDo da sistemare perchè non fa testo... è una prova del cazzo!!!!
+    # Controllo che il file che sto caricando non sia già stato caricato e che quindi non ci sia già un file con lo stesso nome. 
     def check
-      respond_to?(:link_file_name)
+      get_path
     end
 
     def get_path

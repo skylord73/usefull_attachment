@@ -7,8 +7,8 @@
 #   has_attached_file nella classe figlia
 #==Descrizione Campi
 #-  type => Nome della sottoclasse di Link che ha generato l'allegato
-#-  attachmentable_type => classe a cui è collegato l'allegato
-#-  attachmentable_id => id della classa a cui è collegato l'allegato
+#-  attachmentable_type => classe a cui  collegato l'allegato
+#-  attachmentable_id => id della classa a cui  collegato l'allegato
 #
 #N.B. Vengono tutti popolati in automatico da Rails
 #
@@ -39,7 +39,7 @@ module UsefullAttachment
     # ==CLASS Methods
     class<<self
       # importa allegati attraversando rami di directory
-      # ogni path è fatto così: /mnt/WebGatec/namespace/model/id/filename.ext
+      # ogni path  fatto cos: /mnt/WebGatec/namespace/model/id/filename.ext
       # 
       def folders_to_records
         Dir["/mnt/WebGatec/**/*"].each do |file|
@@ -114,7 +114,7 @@ module UsefullAttachment
     end
     
     #Importa il file nel modello dichiarato vedi Spreadsheet::Workbook#to_record
-    #*	:model => passa la parent class della tabella però ha sempre la precedenza il nome del foglio di lavoro se è un modello valido
+    #*	:model => passa la parent class della tabella per ha sempre la precedenza il nome del foglio di lavoro se  un modello valido
     #
     #Nel caso il modello (attachmentable_type) sia anche una relazione procede ad inserire i record direttamente. (Vedi PhoneQueueAttach)
     #==Note
@@ -124,7 +124,7 @@ module UsefullAttachment
         options = args.extract_options!
         options[:model] ||= self.attachmentable_type unless self.attachmentable_type == self.class.name
         out = self.link.to_record(*(args << options)) 
-        #Verifico se il modello è una collection, in caso affermativo lo inserisco automaticamente
+        #Verifico se il modello  una collection, in caso affermativo lo inserisco automaticamente
         association = find_association(options[:model])
         return self.send(association.to_s + "=", out[options[:model]]) if association
         return out
@@ -156,7 +156,7 @@ module UsefullAttachment
       rename(self.attachmentable.send(to_call_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(to_call_name, true)
     end
     
-    #ToDo da sistemare perchè non fa testo... è una prova del cazzo!!!!
+    #ToDo da sistemare perch non fa testo...  una prova del cazzo!!!!
     def check
       respond_to?(:link_file_name)
     end

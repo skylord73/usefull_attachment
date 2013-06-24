@@ -1,5 +1,6 @@
 #Localize messages in it.CustomError.MyError
 module UsefullAttachment
+
   class CustomError < StandardError
     def initialize(*args)
         @options = args.extract_options!
@@ -12,7 +13,9 @@ module UsefullAttachment
     end
   end 
 
-  class FileMissing < CustomError ; end
-  #class MyError < CustomError; end
-end
+  module Links
+    class FileDuplicate < CustomError ; end
+    #class MyError < CustomError; end
+  end
 
+end

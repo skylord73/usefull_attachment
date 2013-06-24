@@ -1,0 +1,4 @@
+it:
+  UsefullAttachment:
+    Links:
+      FileDuplicate: "Il file '%{file}' è già stato caricato!"

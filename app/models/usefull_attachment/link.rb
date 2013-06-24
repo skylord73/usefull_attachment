@@ -155,10 +155,10 @@ module UsefullAttachment
       #mylog("fill respond_to? = #{attachmentable.respond_to?(to_call_name, true)}")
       rename(self.attachmentable.send(to_call_name, self.link_file_name, self.description)) if self.attachmentable.respond_to?(to_call_name, true)
     end
-    
-    #ToDo da sistemare perch non fa testo...  una prova del cazzo!!!!
+
+    # Controllo che il file che sto caricando non sia già stato caricato. 
     def check
-      respond_to?(:link_file_name)
+      raise UsefullAttachment::Links::FileDuplicate.new(:file => self.link_file_name) if File.exists?(self.link.path)
     end
 
     def get_path

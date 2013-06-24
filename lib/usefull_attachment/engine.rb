@@ -40,7 +40,7 @@ module Paperclip
 		   # da Alfresco tramite CIFS. Gli tolgo inoltre le/i cartelle/riferimenti del sistema operativo "." e "..". Se il
 		   # numero che così ottengo è minore o uguale a 0 significa che la cartella era vuota: il numero potrebbe essere
 		   # negativo perchè WebGATeC non è sempre montato su Alfresco, per cui a volte mi trovo a togliere anche 2 elementi
-		   # che in realtà non c'erano.
+		   # che in realtà non c'erano e che quindi non serviva togliere.
 		   tmp_dir = File.dirname(path)
 		   while( Dir.entries(tmp_dir).size - 2 - 2 <= 0 )
 			 FileUtils.rmdir(tmp_dir)

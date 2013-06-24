@@ -6,3 +6,4 @@ end
 
 require "usefull_attachment/engine"
 require "usefull_attachment/exceptions"
+require "usefull_attachment/paperclip"

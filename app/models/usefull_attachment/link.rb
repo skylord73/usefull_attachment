@@ -158,7 +158,7 @@ module UsefullAttachment
     
     # Controllo che il file che sto caricando non sia già stato caricato e che quindi non ci sia già un file con lo stesso nome. 
     def check
-      !File.exists?(self.link.path)
+      raise if File.exists?(self.link.path)
     end
 
     def get_path

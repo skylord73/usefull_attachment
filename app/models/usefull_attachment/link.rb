@@ -158,7 +158,7 @@ module UsefullAttachment
     
     # Controllo che il file che sto caricando non sia già stato caricato. 
     def check
-      raise UsefullAttachment::Links::FileDuplicate.new(:file => self.link.link_file_name) if File.exists?(self.link.path)
+      raise UsefullAttachment::Links::FileDuplicate.new(:file => self.link_file_name) if File.exists?(self.link.path)
     end
 
     def get_path

@@ -14,7 +14,7 @@ module UsefullAttachment
   end 
 
   module Links
-    class FileDuplicate < ::CustomError ; end
+    class FileDuplicate < CustomError ; end
     #class MyError < CustomError; end
   end
 

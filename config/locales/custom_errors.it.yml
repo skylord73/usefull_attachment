@@ -1,4 +1,4 @@
 ﻿it:
   UsefullAttachment:
     Links:
-      FileDuplicate: "Il file %{file} esiste gi�!"
+      FileDuplicate: "Il file %{file} esiste già!"

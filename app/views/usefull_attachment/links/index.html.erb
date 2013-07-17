@@ -5,9 +5,9 @@
   <%#= f.text_field :typology %>
   <%= f.text_field :link_content_type %>
   <%= f.text_field :link_file_name %>
-  <li><br /><br /></li> <%#= Temporaneamente inserisco degli 'a capo' per riallineare i tasti di filtraggio. %>
+  <div class="span-22">
   <%= f.submit %>
-<% end %>
+<% end %></div>
 
 <%=table_for(@attachments,@search) do |t| %>
   <% t.monitor %>
